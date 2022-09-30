@@ -1,73 +1,56 @@
+import java.util.Scanner;
 
-	import java.util.Scanner;
+class Program1 {
+  public static void main(String[] args) {
 
-	public class Program1 {
+    char operator;
+    Double number1, number2, result;
 
-		public double addition(double firstDigit, double secondDigit) {
-			double value = firstDigit + secondDigit;	
-			return value;
-		}
+    // create an object of Scanner class
+    Scanner input = new Scanner(System.in);
 
-		public double subtraction(double firstDigit, double secondDigit) {
-			double value = firstDigit - secondDigit;	
-			return value;
-		}
+    // ask users to enter operator
+    System.out.println("Choose an operator: +, -, *, or /");
+    operator = input.next().charAt(0);
 
-		public double multiplication(double firstDigit, double secondDigit) {
-			double value = firstDigit * secondDigit;	
-			return value;
-		}
+    // ask users to enter numbers
+    System.out.println("Enter first number");
+    number1 = input.nextDouble();
 
-		public double divide(double firstDigit, double secondDigit) {
-			double value = firstDigit / secondDigit;	
-			return value;
-		}
+    System.out.println("Enter second number");
+    number2 = input.nextDouble();
 
-		public static void main(String[] args) {
-		
-			double firstDigit;
-			double secondDigit;
-			String operation;
-			Program1 p1 = new Program1();
-			
-			Scanner sc = new Scanner(System.in);
+    switch (operator) {
 
-			System.out.println("Enter the first digit : ");
-			firstDigit = sc.nextDouble();
+      // performs addition between numbers
+      case '+':
+        result = number1 + number2;
+        System.out.println(number1 + " + " + number2 + " = " + result);
+        break;
 
-			System.out.println("Enter the opration you want to perform (+,-,*,/) : ");
-			operation = sc.next();
-			operation = operation.trim();
-			
-			System.out.println("Enter the second digit : ");
-			secondDigit = sc.nextDouble();
+      // performs subtraction between numbers
+      case '-':
+        result = number1 - number2;
+        System.out.println(number1 + " - " + number2 + " = " + result);
+        break;
 
+      // performs multiplication between numbers
+      case '*':
+        result = number1 * number2;
+        System.out.println(number1 + " * " + number2 + " = " + result);
+        break;
 
-			switch (operation) {
-			case "+":
-				double res = p1.addition(firstDigit, secondDigit);
-				System.out.println(res);
-				break;
-				
-			case "-":
-				double result = p1.subtraction(firstDigit, secondDigit);
-				System.out.println(result);
-				break;
-				
-			case "*":
-				double result1 = p1.multiplication(firstDigit, secondDigit);
-				System.out.println(result1);
-				break;
-				
-			case "/":
-				double result11 = p1.divide(firstDigit, secondDigit);
-				System.out.println(result11);
-				break;
-			
-			default:
-				System.out.println("Please enter correct operation");
-				break;
-			}	
-		}
-	}
+      // performs division between numbers
+      case '/':
+        result = number1 / number2;
+        System.out.println(number1 + " / " + number2 + " = " + result);
+        break;
 
+      default:
+        System.out.println("Invalid operator!");
+        break;
+    }
+
+    input.close();
+  }
+}
